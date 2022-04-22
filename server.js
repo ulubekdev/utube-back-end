@@ -22,7 +22,6 @@ app.get('/info', (req, res) => res.send('Hello World!'));
 // use the middlewares:
 app.use(fileUpload());
 app.use(express.json());
-app.use(express.static(path.join(process.cwd(), 'uploads')));
 app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database') }));
 
 // routes:
