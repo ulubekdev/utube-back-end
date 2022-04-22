@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000;
 app.use(fileUpload());
 app.use(cors());
 app.use(express.json());
-app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database')}));
+app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database', 'users') }));
 
 // routes:
 app.use(usersRouter);
