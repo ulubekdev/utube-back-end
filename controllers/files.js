@@ -1,6 +1,7 @@
 import path from 'path';
+import { InternalServerError } from '../utils/errors.js';
 
-const imageRender = (req, res) => {
+const imageRender = (req, res, next) => {
     try {
         let fileName = req.params.fileName;
         let filePath = path.join('images', fileName);
@@ -11,7 +12,7 @@ const imageRender = (req, res) => {
 };
 
 
-const videoRender = (req, res) => {
+const videoRender = (req, res, next) => {
     try {
         let fileName = req.params.fileName;
         let filePath = path.join('videos', fileName);
@@ -22,7 +23,7 @@ const videoRender = (req, res) => {
 };
 
 
-const downloadVideo = (req, res) => {
+const downloadVideo = (req, res, next) => {
     try {
         let fileName = req.params.fileName;
         let filePath = path.join(process.cwd(), 'uploads', 'videos', fileName);
