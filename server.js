@@ -27,6 +27,8 @@ app.use(videoRouter);
 app.use(fileRouter);
 
 
+app.get('/info', (req, res) => res.send('Hello World!'));
+
 // error handling:
 app.use((error, req, res, next) => {
     if (error.status !== 500) {
