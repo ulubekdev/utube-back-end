@@ -20,7 +20,7 @@ app.get('/info', (req, res) => res.send('Hello World!'));
 
 // use the middlewares:
 app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database') }));
-app.use(cors());
+app.use(cors( { origin: 'https://utube-front-end.herokuapp.com' } ));
 app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'uploads')));
 app.use(fileUpload());
