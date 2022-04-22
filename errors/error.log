@@ -1,0 +1,29 @@
+POST ---- /register ---- 1650372638149 ---- InternalServerError ---- Cannot destructure property 'file' of 'req.files' as it is undefined.
+POST ---- /register ---- 1650372752651 ---- InternalServerError ---- Cannot destructure property 'file' of 'req.files' as it is undefined.
+POST ---- /register ---- 1650373439358 ---- InternalServerError ---- Cannot read properties of undefined (reading 'file')
+POST ---- /register ---- 1650375995043 ---- InternalServerError ---- path is not defined
+POST ---- /register ---- 1650376025431 ---- InternalServerError ---- file.mv is not a function
+POST ---- /videos ---- 1650391035628 ---- InternalServerError ---- Cannot destructure property 'video' of 'req.file' as it is undefined.
+GET ---- /videos ---- 1650393978060 ---- InternalServerError ---- Cannot read properties of undefined (reading 'username')
+GET ---- /videos ---- 1650394013940 ---- InternalServerError ---- Cannot read properties of undefined (reading 'username')
+POST ---- /videos ---- 1650397404332 ---- InternalServerError ---- Cannot destructure property 'video' of 'req.file' as it is undefined.
+POST ---- /videos ---- 1650397467696 ---- InternalServerError ---- Cannot read properties of undefined (reading 'size')
+POST ---- /videos ---- 1650397599424 ---- InternalServerError ---- Cannot read properties of undefined (reading 'id')
+POST ---- /videos ---- 1650397767440 ---- InternalServerError ---- Cannot read properties of undefined (reading 'id')
+POST ---- /videos ---- 1650397802491 ---- InternalServerError ---- Cannot read properties of undefined (reading 'id')
+POST ---- /videos ---- 1650397861380 ---- InternalServerError ---- The "path" argument must be of type string. Received undefined
+POST ---- /videos ---- 1650398049681 ---- InternalServerError ---- Cannot read properties of undefined (reading 'mv')
+POST ---- /videos ---- 1650455781541 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650455898627 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650455945251 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650455995002 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650456043873 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650456068541 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650456103477 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650456122514 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650456137913 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+POST ---- /videos ---- 1650456148729 ---- InternalServerError ---- Cannot read properties of null (reading 'video')
+DELETE ---- /videos/5 ---- 1650456313676 ---- InternalServerError ---- ENOENT: no such file or directory, unlink 'C:\Users\Windows 10\OneDrive\Documents\ProJects\youtube\backend\uploads\videos\programmer.mp4'
+GET ---- /videos?title=salom ---- 4/20/2022 | 07:14 PM ---- InternalServerError ---- Cannot read properties of undefined (reading 'toLowerCase')
+GET ---- /videos ---- 4/21/2022 | 03:15 AM ---- InternalServerError ---- Cannot read properties of undefined (reading 'map')
+GET ---- /videos ---- 4/21/2022 | 03:22 AM ---- InternalServerError ---- Cannot read properties of undefined (reading 'userId')
