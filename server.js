@@ -15,14 +15,15 @@ import modelMiddleware from './middlewares/model.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
 
 app.get('/info', (req, res) => res.send('Hello World!'));
 
 // use the middlewares:
-app.use(fileUpload());
-app.use(express.json());
 app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database') }));
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(process.cwd(), 'uploads')));
+app.use(fileUpload());
 
 // routes:
 app.use(usersRouter);
