@@ -22,7 +22,7 @@ app.get('/info', (req, res) => res.send('Hello World!'));
 // use the middlewares:
 app.use(fileUpload());
 app.use(express.json());
-app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database', 'users') }));
+app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database') }));
 
 // routes:
 app.use(usersRouter);
@@ -32,6 +32,7 @@ app.use(fileRouter);
 
 // error handling:
 app.use((error, req, res, next) => {
+    console.log(error);
     if (error.status !== 500) {
         return res.status(error.status).json({
             status: error.status || 500,
