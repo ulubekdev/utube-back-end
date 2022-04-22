@@ -15,14 +15,13 @@ import modelMiddleware from './middlewares/model.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(cors({ origin: 'http://localhost:4000' }));
 
 app.get('/info', (req, res) => res.send('Hello World!'));
 
 // use the middlewares:
 app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database') }));
-app.use(cors( { origin: 'https://utube-front-end.herokuapp.com' } ));
 app.use(express.json());
-app.use(express.static(path.join(process.cwd(), 'uploads')));
 app.use(fileUpload());
 
 // routes:
@@ -63,6 +62,5 @@ app.use((error, req, res, next) => {
 
 // start the server:
 app.listen(PORT, () => {
-    const port = server.address().port;
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port ${PORT}`);
 });
