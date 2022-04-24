@@ -21,15 +21,14 @@ const REGISTER = (req, res, next ) => {
         if(!file) {
             return next(new AuthorizationError(400, 'Please upload a profile picture'));
         }
-
+        
         if(file.size > 1024 * 1024) {
             return next(new AuthorizationError(400, 'Image size must be less than 1 MB'));
         }
-
+        
         if(file.image.mimetype !== 'image/jpeg' && file.image.mimetype !== 'image/png' && file.image.mimetype !== 'image/jpg') {
             return next(new AuthorizationError(400, 'File must be a jpeg or png or jpg'));
         }
-        
         let fileName = Date.now() + '-' + file.image.name;
         let filePath = path.join(process.cwd(), 'uploads', 'images', fileName);
 
