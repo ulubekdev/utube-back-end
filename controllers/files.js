@@ -1,5 +1,5 @@
-import path from 'path';
 import { InternalServerError } from '../utils/errors.js';
+import path from 'path';
 
 const imageRender = (req, res, next) => {
     try {

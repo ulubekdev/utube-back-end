@@ -1,4 +1,4 @@
-import { InternalServerError } from '../utils/errors.js';
+import { AuthorizationError, InternalServerError } from '../utils/errors.js';
 import path from 'path';
 
 const getVideos = (req, res, next) => {
@@ -44,25 +44,25 @@ const uploadVideo = (req, res, next) => {
         let { videoTitle } = req.body;
 
         if(!file) {
-            return next(new InternalServerError(400, 'Video is required'));
+            return next(new AuthorizationError(400, 'Video is required'));
         }
 
         let size = (file.video.size / 1024 / 1024).toFixed(2);
         
         if(size > 50) {
-            return next(new InternalServerError(400, 'File size must be less than 50MB'));
+            return next(new AuthorizationError(400, 'File size must be less than 50MB'));
         }
 
         if(!videoTitle.trim()) {
-            return next(new InternalServerError(400, 'Video title is required'));
+            return next(new AuthorizationError(400, 'Video title is required'));
         }
 
         if(videoTitle.length < 3 || videoTitle.length > 20) {
-            return next(new InternalServerError(400, 'Video title must be between 3 and 20 characters'));
+            return next(new AuthorizationError(400, 'Video title must be between 3 and 20 characters'));
         }
 
         if(!file.video.mimetype.includes('mp4') && !file.video.mimetype.includes('avi') && !file.video.mimetype.includes('mkv')) {
-            return next(new InternalServerError(400, 'File must be a video'));
+            return next(new AuthorizationError(400, 'File must be a video'));
         }
 
         let date = new Date();
@@ -110,11 +110,11 @@ const updateVideo = (req, res, next) => {
     let video = videos.find(video => video.videoId === parseInt(videoId) && video.userId === parseInt(req.id));
 
     if(!video) {
-        return next(new InternalServerError(400, 'Video does not exist'));
+        return next(new AuthorizationError(400, 'Video does not exist'));
     }
 
     if(!videoTitle.trim()) {
-        return next(new InternalServerError(400, 'Video title is required'));
+        return next(new AuthorizationError(400, 'Video title is required'));
     }
 
     let index = videos.indexOf(video);
@@ -142,7 +142,7 @@ const deleteVideo = (req, res, next) => {
     let video = videos.find(video => video.videoId === parseInt(videoId) && video.userId === parseInt(req.id));
 
     if(!video) {
-        return next(new InternalServerError(400, 'Video does not exist'));
+        return next(new AuthorizationError(400, 'Video does not exist'));
     }
     
     let index = videos.indexOf(video);
