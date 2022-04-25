@@ -12,18 +12,16 @@ import fileRouter from './src/routes/files.js';
 // Importing the middlewares:
 import modelMiddleware from './src/middlewares/model.js';
 
-const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-
-app.get('/info', (req, res) => res.send('Hello World!'));
+const app = express();
 
 // use the middlewares:
-app.use(express.static(path.join(process.cwd(), 'src')));
-app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'src', 'database') }));
-app.use(express.json());
+app.use(cors());
 app.use(fileUpload());
+app.use(express.json());
+app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'src', 'database') }));
+app.use(express.static(path.join(process.cwd(), 'src', 'uploads')));
 
 // routes:
 app.use(usersRouter);
