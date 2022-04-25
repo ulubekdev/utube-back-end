@@ -20,7 +20,7 @@ app.use(cors());
 app.get('/info', (req, res) => res.send('Hello World!'));
 
 // use the middlewares:
-app.use(express.static(path.join(process.cwd(), 'src', 'uploads')));
+app.use(express.static(path.join(process.cwd(), 'src')));
 app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'src', 'database') }));
 app.use(express.json());
 app.use(fileUpload());
