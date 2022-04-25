@@ -78,7 +78,7 @@ const uploadVideo = (req, res, next) => {
             uploadedData: date.toISOString().slice(0, 10) + ' | ' + date.toLocaleTimeString([], { hourCycle: 'h23', hour: '2-digit', minute:'2-digit' })
         };
 
-        let filePath = path.join(process.cwd(), 'uploads', 'videos', videoUrl);
+        let filePath = path.join(process.cwd(), 'src', 'uploads', 'videos', videoUrl);
 
         file.video.mv(filePath, (error) => {
             if(error) {

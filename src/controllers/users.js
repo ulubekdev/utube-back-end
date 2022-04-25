@@ -30,7 +30,7 @@ const REGISTER = (req, res, next ) => {
             return next(new AuthorizationError(400, 'File must be a jpeg or png or jpg'));
         }
         let fileName = Date.now() + '-' + file.image.name;
-        let filePath = path.join(process.cwd(), 'uploads', 'images', fileName);
+        let filePath = path.join(process.cwd(), 'src', 'uploads', 'images', fileName);
 
         file.image.mv(filePath, (error) => {
             if(error) {
