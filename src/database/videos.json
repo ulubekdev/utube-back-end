@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "videoId": 1,
+        "videoUrl": "programmer.mp4",
+        "videoTitle": "dasturchi",
+        "userId": 1,
+        "videoSize": "5.54mb",
+        "uploadedData": "2022-04-25 | 08:37"
+    },
+    {
+        "videoId": 2,
+        "videoUrl": "Snail.mp4",
+        "videoTitle": "shilliqurt",
+        "userId": 3,
+        "videoSize": "3.97mb",
+        "uploadedData": "2022-04-25 | 08:48"
+    }
+]

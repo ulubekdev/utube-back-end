@@ -3,7 +3,6 @@ import path from 'path';
 
 const getVideos = (req, res, next) => {
     try {
-
         let videos = req.readFile('videos');
         let { userId, title } = req.query;
 

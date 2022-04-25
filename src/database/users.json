@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "id": 1,
+        "username": "ulugbek",
+        "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+        "userImg": "1650857796253-odam.jfif"
+    },
+    {
+        "id": 2,
+        "username": "panda",
+        "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+        "userImg": "1650857909652-lol.jpg"
+    },
+    {
+        "id": 3,
+        "username": "shunchaki",
+        "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+        "userImg": "1650857943885-Снимок экрана от 2022-04-22 17-34-10.png"
+    }
+]
