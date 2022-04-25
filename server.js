@@ -5,21 +5,25 @@ import cors from 'cors';
 import fileUpload from 'express-fileupload';
 
 // Importing the routes:
-import usersRouter from './routes/users.js';
-import videoRouter from './routes/videos.js';
-import fileRouter from './routes/files.js';
+import usersRouter from './src/routes/users.js';
+import videoRouter from './src/routes/videos.js';
+import fileRouter from './src/routes/files.js';
 
 // Importing the middlewares:
-import modelMiddleware from './middlewares/model.js';
+import modelMiddleware from './src/middlewares/model.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// use the middlewares:
-app.use(fileUpload());
 app.use(cors());
+
+app.get('/info', (req, res) => res.send('Hello World!'));
+
+// use the middlewares:
+app.use(express.static(path.join(process.cwd(), 'src')));
+app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'src', 'database') }));
 app.use(express.json());
-app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database')}));
+app.use(fileUpload());
 
 // routes:
 app.use(usersRouter);
@@ -29,6 +33,7 @@ app.use(fileRouter);
 
 // error handling:
 app.use((error, req, res, next) => {
+    console.log(error);
     if (error.status !== 500) {
         return res.status(error.status).json({
             status: error.status || 500,
@@ -41,7 +46,7 @@ app.use((error, req, res, next) => {
     let date = new Date();
 
     fs.appendFileSync(
-        path.join(process.cwd(), 'errors', 'error.log'),
+        path.join(process.cwd(), 'src', 'errors', 'error.log'),
         `${req.method} ---- ${req.url} ---- ${date.toLocaleDateString() + ' | ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} ---- ${error.name} ---- ${error.message}\n`
     );
 
@@ -58,5 +63,5 @@ app.use((error, req, res, next) => {
 
 // start the server:
 app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

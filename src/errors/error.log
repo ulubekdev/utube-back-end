@@ -1,0 +1,4 @@
+GET ---- /images/1650632748317-lol.jpg ---- 4/22/2022 | 06:06 PM ---- InternalServerError ---- path must be absolute or specify root to res.sendFile
+GET ---- /images/1650632748317-lol.jpg ---- 4/22/2022 | 06:07 PM ---- InternalServerError ---- path must be absolute or specify root to res.sendFile
+GET ---- /images/1650632748317-lol.jpg ---- 4/22/2022 | 06:07 PM ---- InternalServerError ---- path must be absolute or specify root to res.sendFile
+GET ---- /images/1650854899910-odam.jfif ---- 4/25/2022 | 08:12 AM ---- InternalServerError ---- path must be absolute or specify root to res.sendFile
