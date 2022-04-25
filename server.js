@@ -5,12 +5,12 @@ import cors from 'cors';
 import fileUpload from 'express-fileupload';
 
 // Importing the routes:
-import usersRouter from './routes/users.js';
-import videoRouter from './routes/videos.js';
-import fileRouter from './routes/files.js';
+import usersRouter from './src/routes/users.js';
+import videoRouter from './src/routes/videos.js';
+import fileRouter from './src/routes/files.js';
 
 // Importing the middlewares:
-import modelMiddleware from './middlewares/model.js';
+import modelMiddleware from './src/middlewares/model.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,8 +20,8 @@ app.use(cors());
 app.get('/info', (req, res) => res.send('Hello World!'));
 
 // use the middlewares:
-app.use(express.static(path.join(process.cwd(), 'uploads')));
-app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'database') }));
+app.use(express.static(path.join(process.cwd(), 'src', 'uploads')));
+app.use(modelMiddleware({ databasePath: path.join(process.cwd(), 'src', 'database') }));
 app.use(express.json());
 app.use(fileUpload());
 
@@ -46,7 +46,7 @@ app.use((error, req, res, next) => {
     let date = new Date();
 
     fs.appendFileSync(
-        path.join(process.cwd(), 'errors', 'error.log'),
+        path.join(process.cwd(), 'src', 'errors', 'error.log'),
         `${req.method} ---- ${req.url} ---- ${date.toLocaleDateString() + ' | ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} ---- ${error.name} ---- ${error.message}\n`
     );
 
